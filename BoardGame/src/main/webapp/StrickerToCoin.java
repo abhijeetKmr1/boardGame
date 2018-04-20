@@ -17,8 +17,6 @@ public class StrickerToCoin {
         else
             System.out.println( "NoCollisionHappen") ;
     }
-     
-    // Driven Program
     public static void main (String[] args) 
     {
         int radius = 5;
