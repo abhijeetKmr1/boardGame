@@ -16,22 +16,26 @@ public class BoardInit {
             coin = new Coin();
             coin.setCoinId("coin1");
             coin.setPosition((BoardDefination.BOARD_DIMENTION/2)+":"+(BoardDefination.BOARD_DIMENTION/2));
-            coin.setCoinType("carrommen");
+            coin.setCoinType("red");
 
             board.add(coin);
 
             int innerCoinCount = coinCount > 6 ? 6 : coinCount;
             double angleBetweenCoins = 360 / innerCoinCount;
 
-            while(innerCoinCount > board.size()){
+            while(innerCoinCount >= board.size()){
+
                 double angleWithBase = angleBetweenCoins * (board.size() - 1);
-                double base =  Math.cos(angleWithBase)*BoardDefination.COIN_RADIUS * 2;
-                double height =  Math.cos(angleWithBase)*BoardDefination.COIN_RADIUS * 2;
+                double base =  Math.ceil(Math.cos(Math.toRadians(angleWithBase ))*BoardDefination.COIN_RADIUS * 2);
+                double height =  Math.ceil(Math.sin(Math.toRadians(angleWithBase))*BoardDefination.COIN_RADIUS * 2);
 
                 coin = new Coin();
                 coin.setCoinId("coin" + (board.size() + 1));
                 coin.setPosition((BoardDefination.BOARD_DIMENTION/2 + base)+":"+(BoardDefination.BOARD_DIMENTION/2 + height));
-                coin.setCoinType("carrommen");
+                if (board.size()%2 == 0)
+                    coin.setCoinType("black");
+                else
+                    coin.setCoinType("white");
 
                 board.add(coin);
             }
@@ -46,28 +50,31 @@ public class BoardInit {
                 double height;
 
                 if(angleWithBase % 60 == 0) {
-                    base = Math.cos(angleWithBase) * BoardDefination.COIN_RADIUS * 4;
-                    height = Math.cos(angleWithBase) * BoardDefination.COIN_RADIUS * 4;
+                    base = Math.ceil(Math.cos(Math.toRadians(angleWithBase)) * BoardDefination.COIN_RADIUS * 4);
+                    height = Math.ceil(Math.sin(Math.toRadians(angleWithBase)) * BoardDefination.COIN_RADIUS * 4);
                 }else{
-                    base = Math.cos(angleWithBase) * BoardDefination.COIN_RADIUS * 3;
-                    height = Math.cos(angleWithBase) * BoardDefination.COIN_RADIUS * 3;
+                    base = Math.ceil(Math.cos(Math.toRadians(angleWithBase)) * BoardDefination.COIN_RADIUS * Math.sqrt(12));
+                    height = Math.ceil(Math.sin(Math.toRadians(angleWithBase)) * BoardDefination.COIN_RADIUS * Math.sqrt(12));
                 }
 
                 coin = new Coin();
                 coin.setCoinId("coin" + (board.size() + 1));
                 coin.setPosition((BoardDefination.BOARD_DIMENTION/2 + base)+":"+(BoardDefination.BOARD_DIMENTION/2 + height));
-                coin.setCoinType("carrommen");
+                if (board.size()%2 == 0)
+                    coin.setCoinType("black");
+                else
+                    coin.setCoinType("white");
 
                 board.add(coin);
             }
 
 
-            coin = new Coin();
+/*            coin = new Coin();
             coin.setCoinId("striker");
             coin.setPosition(BoardDefination.STRIKER_INIT_POSITIONS);
             coin.setCoinType("striker");
 
-            board.add(coin);
+            board.add(coin);*/
 
             return board;
         }

@@ -1,5 +1,5 @@
 group 'com.group5.board'
-version '1.0-SNAPSHOT'
+version '1.0'
 
 apply plugin: 'java'
 apply plugin: 'war'
@@ -18,4 +18,6 @@ dependencies {
     compile "org.jboss.resteasy:resteasy-jackson-provider:3.0.17.Final"
     compile	"org.jboss.resteasy:resteasy-jaxrs:3.0.17.Final"
     compile "org.jboss.resteasy:resteasy-validator-provider-11:3.0.11.Final"
+    compile group: 'org.json', name: 'json', version: '20180130'
+
 }
