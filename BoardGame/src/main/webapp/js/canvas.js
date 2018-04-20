@@ -1,4 +1,20 @@
 
+function init(x1, y1, x2, y2) {
+  var a = 20;
+  var b = 50;
+  createOuterBorder(x1, y1, x2, y2);
+  createOuterBorder(x1+a, y1+a, x2-a, y2-a);
+
+  ctx.lineWidth = 1;
+  drawPockets(x1+a, y1+a, x2-a, y2-a);
+  createInerBorder(x1+b, y1+b, x2-b, y2-b);
+}
+
+function placeStriker(x1, y1, r1, r2){
+  drawStriker(x1, y1, r1, r2);
+  drawLine(x1,y1, x1, y1-70);
+}
+
 function createOuterBorder(x1, y1, x2, y2) { 
    	drawLine(x1, y1, x2, y1);  
    	drawLine(x1, y1, x1, y2);
@@ -49,5 +65,31 @@ function drawStriker(x1, y1, r1, r2){
   ctx.arc(x1, y1, 25, r1, r2);
   ctx.fillStyle = 'blue';
   ctx.fill();
+  ctx.stroke();
+}
+
+function clear(){
+  ctx.clearRect(0, 0, 800, 600);
+}
+function placeDirection(x1, y1,r1){
+  ctx.beginPath();
+  ctx.moveTo(x1, y1);
+  var ex;
+  var ey;
+  var lcos =  Math.ceil(Math.cos(r1 * (Math.PI/180)) * 70);
+  var lsin =  Math.ceil(Math.sin(r1 * (Math.PI/180)) * 70);
+  if (lcos >= 0) {
+    ex = Math.abs(x1) + Math.abs(lcos);
+  } else {
+    ex = Math.abs(x1) - Math.abs(lcos);
+  }
+  if (lsin >= 0) {
+    ey = Math.abs(y1) - Math.abs(lsin);
+  }
+  else {
+    ey = Math.abs(y1) + Math.abs(lsin);
+  }
+  ctx.lineTo(ex, ey);
+  ctx.strokeStyle = 'black';
   ctx.stroke();
 }

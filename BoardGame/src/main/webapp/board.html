@@ -3,22 +3,61 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<script type="text/javascript">
-		var blueGuthis = [];
-		var redGuthis = [];
-		var allPositition = [];
-	</script>
+	<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-3">
+
 		</div>
 		<div id="canDiv" class="col-md-6">
 				<canvas id="myCanvas" width="800" height="600"></canvas>
 		</div>
 		<div class="col-md-3">
+			<table class="table table-condensed">
+				<tbody>
+					<tr>
+						<td>Adjust Striker</td>
+						<td >
+  							<div class="value-button" id="striker"</div>
+  							<input type="number" id="strikerVal" value="325" />
+						</td>
+					</tr>
+      				<tr>
+      					<td>Adjust Angle</td>
+						<td >
+  							<div class="value-button" id="angle"</div>
+  							<input class = "input-sm" type="number" id="angleVal" value="90" />
+						</td>			
+      				</tr>
+				
+      				<tr>
+						<td>Apply Force</td>
+						<td >
+  							<div class="value-button" id="force"</div>
+  							<input class = "input-sm" type="number" id="forceVal" value="10" />
+						</td>
+      				</tr>
+      				<tr>
+						<td>Time Slice</td>
+						<td >
+  							<div class="value-button" id="slice"</div>
+  							<input class = "input-sm" type="number" id="sliceVal" value="1" />
+						</td>
+      				</tr>
+      				<tr>
+      					<td>
+      					<button type="button" class="btn btn-success">Hit</button>
+      					</td>
+      				</tr>
+    			</tbody>
+  			</table>
 		</div>
 	</div>
 </div>
