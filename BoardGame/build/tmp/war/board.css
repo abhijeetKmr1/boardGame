@@ -1,0 +1,67 @@
+.board{
+  height:200px;
+  width:200px;
+  border:1px solid #484848;
+  margin:auto;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+ position: absolute;
+  
+}
+
+.box1{
+  height:35px;
+  width:35px;
+  border:1px solid #484848;
+  position: absolute;
+  margin: 10px;
+  left:0;
+  top:0;
+  
+}
+.box2{
+  height:35px;
+  width:35px;
+  border:1px solid #484848;
+  position: absolute;
+  margin: 10px;
+  top:0;
+  right:0;
+  
+}
+.box3{
+  height:35px;
+  width:35px;
+  border:1px solid #484848;
+  position: absolute;
+  margin: 10px;
+  left:0;
+  bottom:0;
+  
+}
+.box4{
+  height:35px;
+  width:35px;
+  border:1px solid #484848;
+  position: absolute;
+  margin: 10px;
+  right:0;
+  bottom:0;
+  
+}
+.box5{
+  height:35px;
+  width:35px;
+  border:1px solid #484848;
+  margin:auto;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+ position: absolute;
+  border-radius:50%;
+  
+  
+}
